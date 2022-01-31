@@ -1,6 +1,9 @@
 fr:
   activerecord:
     attributes:
+      involvement:
+        description: Description
+        person: Personne
       person:
         biography: Biographie
         first_name: Prénom
@@ -8,13 +11,30 @@ fr:
       program:
         description: Description
         title: Titre
+      role:
+        description: Description
     models:
+      involvement:
+        one: Implication
+        other: Implications
       person:
         one: Personne
         other: Personnes
       program:
         one: Formation
         other: Formations
+      role:
+        one: Rôle
+        other: Rôles
+  program:
+    involvement:
+      one: Enseignant
+      other: Enseignants
+    roles: Équipe administrative
+    role:
+      involvement:
+        one: Membre
+        other: Membres
   back: Retour
   create: Créer
   destroy: Supprimer
