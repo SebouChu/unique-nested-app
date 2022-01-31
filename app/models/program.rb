@@ -1,18 +1,16 @@
 # == Schema Information
 #
-# Table name: people
+# Table name: programs
 #
 #  id         :uuid             not null, primary key
-#  first_name :string
-#  last_name  :string
+#  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+class Program < ApplicationRecord
+  has_rich_text :description
 
-one:
-  first_name: MyString
-  last_name: MyString
-
-two:
-  first_name: MyString
-  last_name: MyString
+  def to_s
+    "#{title}"
+  end
+end

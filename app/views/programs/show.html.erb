@@ -1,0 +1,12 @@
+<p>
+  <strong><%= Program.human_attribute_name('title') %> :</strong>
+  <%= @program.title %>
+</p>
+
+<p>
+  <strong><%= Program.human_attribute_name('description') %> :</strong>
+  <%= @program.description %>
+</p>
+
+<%= link_to t('edit'), edit_program_path(@program) %> |
+<%= link_to t('back'), programs_path %>

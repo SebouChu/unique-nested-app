@@ -5,10 +5,16 @@ fr:
         biography: Biographie
         first_name: Prénom
         last_name: Nom
+      program:
+        description: Description
+        title: Titre
     models:
       person:
         one: Personne
         other: Personnes
+      program:
+        one: Formation
+        other: Formations
   back: Retour
   create: Créer
   destroy: Supprimer
@@ -16,3 +22,6 @@ fr:
   please_confirm: Êtes-vous sûr(e) ?
   save: Enregistrer
   show: Voir
+  successfully_created_html: "<i>%{model}</i> a bien été créé(e)."
+  successfully_destroyed_html: "<i>%{model}</i> a bien été détruit(e)."
+  successfully_updated_html: "<i>%{model}</i> a bien été mis(e) à jour."

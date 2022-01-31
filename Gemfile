@@ -13,6 +13,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bootstrap', '~> 5.1'
 gem 'simple_form', '~> 5.1'
 gem "jquery-rails", "~> 4.4"
+gem "annotate", "~> 3.1"
 
 group :development, :test do
   gem 'byebug'

@@ -15,10 +15,10 @@
     <main class="container-fluid py-4">
       <div class="container">
         <% if notice.present? %>
-          <div class="alert alert-primary"><%= notice %></div>
+          <div class="alert alert-primary"><%= sanitize notice %></div>
         <% end %>
         <% if alert.present? %>
-          <div class="alert alert-danger"><%= alert %></div>
+          <div class="alert alert-danger"><%= sanitize alert %></div>
         <% end %>
       </div>
 
