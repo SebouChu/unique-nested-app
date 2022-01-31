@@ -10,7 +10,21 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'components/header' %>
+
+    <main class="container-fluid py-4">
+      <div class="container">
+        <% if notice.present? %>
+          <div class="alert alert-primary"><%= notice %></div>
+        <% end %>
+        <% if alert.present? %>
+          <div class="alert alert-danger"><%= alert %></div>
+        <% end %>
+      </div>
+
+      <%= yield %>
+    </main>
+
     <%= javascript_include_tag 'application' %>
   </body>
 </html>

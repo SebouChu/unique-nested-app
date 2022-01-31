@@ -1,0 +1,18 @@
+fr:
+  activerecord:
+    attributes:
+      person:
+        biography: Biographie
+        first_name: Prénom
+        last_name: Nom
+    models:
+      person:
+        one: Personne
+        other: Personnes
+  back: Retour
+  create: Créer
+  destroy: Supprimer
+  edit: Modifier
+  please_confirm: Êtes-vous sûr(e) ?
+  save: Enregistrer
+  show: Voir
