@@ -9,6 +9,7 @@ class RolesController < ApplicationController
   end
 
   def show
+    @involvements = @role.involvements.ordered
     breadcrumb
   end
 

@@ -5,10 +5,10 @@
 
 <h2><%= Involvement.model_name.human(count: 2) %> (<%= @role.involvements.size %>)</h2>
 
-<%= link_to "Gérer les #{Involvement.model_name.human(count: 2).downcase}", role_people_path(@role), class: 'btn btn-primary' %>
+<%= link_to "Gérer les #{Involvement.model_name.human(count: 2).downcase}", role_people_path(@role), class: 'btn btn-primary mb-3' %>
 
 <ul>
-  <% @role.involvements.each do |involvement| %>
+  <% @involvements.each do |involvement| %>
     <li><%= link_to involvement, role_person_path(@role, involvement) %></li>
   <% end %>
 </ul>

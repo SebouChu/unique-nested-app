@@ -7,6 +7,7 @@
     <tr>
       <th></th>
       <th><%= Role.human_attribute_name('description') %></th>
+      <th><%= Involvement.model_name.human(count: 2) %></th>
       <th></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr data-id="<%= role.id %>">
         <td><span class="handle">☰</span></td>
         <td><%= role.description %></td>
+        <td><%= role.involvements.ordered.to_sentence %></td>
         <td>
           <div class="btn-group" role="group">
             <%= link_to t('show'), role, class: "btn btn-primary" %>
