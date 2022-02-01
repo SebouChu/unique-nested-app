@@ -1,0 +1,27 @@
+<h1><%= Involvement.model_name.human(count: 2) %> (<%= @involvements.size %>)</h1>
+
+<%= link_to t('create'), new_role_person_path(@role), class: 'btn btn-primary' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= Involvement.human_attribute_name('person') %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @involvements.each do |involvement| %>
+      <tr>
+        <td><%= involvement.person %></td>
+        <td>
+          <div class="btn-group" role="group">
+            <%= link_to t('show'), role_person_path(@role, involvement), class: "btn btn-primary" %>
+            <%= link_to t('edit'), edit_role_person_path(@role, involvement), class: "btn btn-warning" %>
+            <%= link_to t('destroy'), role_person_path(@role, involvement), method: :delete, data: { confirm: t('please_confirm') }, class: "btn btn-danger" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

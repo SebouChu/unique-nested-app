@@ -28,4 +28,8 @@ class Involvement < ApplicationRecord
 
   belongs_to :person
   belongs_to :target, polymorphic: true
+
+  def to_s
+    "#{person}"
+  end
 end

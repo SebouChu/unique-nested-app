@@ -3,5 +3,15 @@
   <%= @role.description %>
 </p>
 
+<h2><%= Involvement.model_name.human(count: 2) %> (<%= @role.involvements.size %>)</h2>
+
+<%= link_to "Gérer les #{Involvement.model_name.human(count: 2).downcase}", role_people_path(@role), class: 'btn btn-primary' %>
+
+<ul>
+  <% @role.involvements.each do |involvement| %>
+    <li><%= link_to involvement, role_person_path(@role, involvement) %></li>
+  <% end %>
+</ul>
+
 <%= link_to t('edit'), edit_role_path(@role) %> |
 <%= link_to t('back'), roles_path %>

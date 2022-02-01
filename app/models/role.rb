@@ -18,6 +18,7 @@ class Role < ApplicationRecord
   include WithPosition
 
   belongs_to :target, polymorphic: true, optional: true
+  has_many :involvements, as: :target
 
   def to_s
     "#{description}"

@@ -1,0 +1,6 @@
+<h1><%= @involvement %></h1>
+
+<%= render 'form', involvement: @involvement, form_action_url: role_person_path(@role, @involvement) %>
+
+<%= link_to t('show'), role_person_path(@role, @involvement) %> |
+<%= link_to t('back'), role_people_path(@role) %>
