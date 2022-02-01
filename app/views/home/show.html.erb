@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <%= link_to t('show'), people_path, class: "btn btn-sm btn-primary float-end" %>
+        <h5 class="card-title"><%= Person.model_name.human(count: 2) %> (<%= Person.all.size %>)</h5>
+      </div>
+      <div class="card-body">
+        <ul>
+          <% @people.each do |person| %>
+            <li><%= link_to person, person %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <%= link_to t('show'), programs_path, class: "btn btn-sm btn-primary float-end" %>
+        <h5 class="card-title"><%= Program.model_name.human(count: 2) %> (<%= Program.all.size %>)</h5>
+      </div>
+      <div class="card-body">
+        <ul>
+          <% @programs.each do |program| %>
+            <li><%= link_to program, program %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <%= link_to t('show'), roles_path, class: "btn btn-sm btn-primary float-end" %>
+        <h5 class="card-title"><%= Role.model_name.human(count: 2) %> (<%= Role.targetless.size %>)</h5>
+      </div>
+      <div class="card-body">
+        <ul>
+          <% @roles.each do |role| %>
+            <li><%= link_to role, role %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

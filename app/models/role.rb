@@ -20,6 +20,8 @@ class Role < ApplicationRecord
   belongs_to :target, polymorphic: true, optional: true
   has_many :involvements, as: :target
 
+  scope :targetless, -> { where(target: nil) }
+
   def to_s
     "#{description}"
   end

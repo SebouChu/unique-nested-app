@@ -13,6 +13,7 @@ gem 'bootstrap', '~> 5.1'
 gem 'simple_form', '~> 5.1'
 gem "jquery-rails", "~> 4.4"
 gem "annotate", "~> 3.1"
+gem "breadcrumbs_on_rails", "~> 4.1"
 
 group :development, :test do
   gem 'byebug'

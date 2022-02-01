@@ -4,16 +4,21 @@ class Roles::PeopleController < ApplicationController
 
   def index
     @involvements = @role.involvements.all
+    breadcrumb
   end
 
   def show
+    breadcrumb
   end
 
   def new
     @involvement = @role.involvements.new
+    breadcrumb
   end
 
   def edit
+    breadcrumb
+    add_breadcrumb t('edit')
   end
 
   def create
@@ -22,6 +27,7 @@ class Roles::PeopleController < ApplicationController
       redirect_to role_person_url(@role, @involvement), notice: t('successfully_created_html', model: @involvement.to_s)
     else
       render :new, status: :unprocessable_entity
+      breadcrumb
     end
   end
 
@@ -30,6 +36,8 @@ class Roles::PeopleController < ApplicationController
       redirect_to role_person_url(@role, @involvement), notice: t('successfully_updated_html', model: @involvement.to_s)
     else
       render :edit, status: :unprocessable_entity
+      breadcrumb
+      add_breadcrumb t('edit')
     end
   end
 
@@ -41,7 +49,7 @@ class Roles::PeopleController < ApplicationController
   private
 
   def set_role
-    @role = Role.where(target_id: nil).find(params[:role_id])
+    @role = Role.targetless.find(params[:role_id])
   end
 
   def set_involvement
@@ -53,5 +61,13 @@ class Roles::PeopleController < ApplicationController
       target: @role,
       kind: :administrator
     })
+  end
+
+  def breadcrumb
+    super
+    add_breadcrumb Role.model_name.human(count: 2), roles_path
+    breadcrumb_for(@role)
+    add_breadcrumb Involvement.model_name.human(count: 2), role_people_path(@role)
+    breadcrumb_for(@involvement, record_path: :role_person_path, record_path_params: [@role, @involvement])
   end
 end

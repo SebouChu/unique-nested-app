@@ -3,5 +3,4 @@
   <%= link_to @involvement.person, @involvement.person %>
 </p>
 
-<%= link_to t('edit'), edit_role_person_path(@role, @involvement) %> |
-<%= link_to t('back'), role_people_path(@role) %>
+<%= link_to t('edit'), edit_role_person_path(@role, @involvement), class: "btn btn-warning" %>

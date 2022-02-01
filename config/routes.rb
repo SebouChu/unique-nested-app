@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     resources :people, controller: 'roles/people'
   end
 
-  root 'people#index'
+  root 'home#show'
 end
