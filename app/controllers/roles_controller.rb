@@ -52,7 +52,7 @@ class RolesController < ApplicationController
   end
 
   def role_params
-    params.require(:role).permit(:description)
+    params.require(:role).permit(:description, involvements_attributes: [:id, :person_id, :_destroy])
   end
 
   def breadcrumb

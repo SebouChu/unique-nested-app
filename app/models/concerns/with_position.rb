@@ -9,6 +9,7 @@ module WithPosition
   protected
 
   def set_position
+    return unless self.position.blank?
     self.position = last_ordered_record.nil? ? 1 : last_ordered_record.position + 1
   end
 

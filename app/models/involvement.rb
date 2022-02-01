@@ -29,7 +29,23 @@ class Involvement < ApplicationRecord
   belongs_to :person
   belongs_to :target, polymorphic: true
 
+  validates :kind, presence: true
+  validates :person_id, uniqueness: { scope: [:target_type, :target_id] }
+
+  before_validation :set_kind, on: :create
+
   def to_s
     "#{person}"
+  end
+
+  protected
+
+  def set_kind
+    case target_type
+    when "Program"
+      self.kind = :teacher
+    else
+      self.kind = :administrator
+    end
   end
 end

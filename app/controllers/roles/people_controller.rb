@@ -57,10 +57,7 @@ class Roles::PeopleController < ApplicationController
   end
 
   def involvement_params
-    params.require(:involvement).permit(:person_id, :position).merge({
-      target: @role,
-      kind: :administrator
-    })
+    params.require(:involvement).permit(:person_id, :position).merge({ target: @role })
   end
 
   def breadcrumb

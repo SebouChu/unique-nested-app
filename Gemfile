@@ -14,6 +14,8 @@ gem 'simple_form', '~> 5.1'
 gem "jquery-rails", "~> 4.4"
 gem "annotate", "~> 3.1"
 gem "breadcrumbs_on_rails", "~> 4.1"
+gem "cocoon", "~> 1.2"
+gem "rails-i18n", "~> 6.0"
 
 group :development, :test do
   gem 'byebug'

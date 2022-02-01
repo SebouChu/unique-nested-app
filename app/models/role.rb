@@ -18,7 +18,9 @@ class Role < ApplicationRecord
   include WithPosition
 
   belongs_to :target, polymorphic: true, optional: true
-  has_many :involvements, as: :target
+  has_many :involvements, as: :target, inverse_of: :target
+
+  accepts_nested_attributes_for :involvements, reject_if: :all_blank, allow_destroy: true
 
   scope :targetless, -> { where(target: nil) }
 

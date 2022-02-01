@@ -4,6 +4,7 @@ fr:
       involvement:
         description: Description
         person: Personne
+        person_id: Personne
       person:
         biography: Biographie
         first_name: Prénom
@@ -35,14 +36,27 @@ fr:
       involvement:
         one: Membre
         other: Membres
+  add: Ajouter
   back: Retour
   create: Créer
   destroy: Supprimer
   edit: Modifier
   home: Accueil
+  info: Informations
   please_confirm: Êtes-vous sûr(e) ?
   save: Enregistrer
   show: Voir
+  simple_form:
+    "yes": 'Oui'
+    "no": 'Non'
+    required:
+      text: 'requis'
+      mark: '*'
+    error_notification:
+      default_message: "Veuillez résoudre les problèmes suivants :"
+    include_blanks:
+      defaults:
+        person: 'Sélectionnez une personne'
   successfully_created_html: "<i>%{model}</i> a bien été créé(e)."
   successfully_destroyed_html: "<i>%{model}</i> a bien été détruit(e)."
   successfully_updated_html: "<i>%{model}</i> a bien été mis(e) à jour."

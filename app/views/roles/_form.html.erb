@@ -2,8 +2,26 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :description %>
+  <div class="row">
+    <div class="col-md-8">
+      <h2><%= t('info') %></h2>
+      <div class="form-inputs">
+        <%= f.input :description %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h2><%= Involvement.model_name.human(count: 2) %></h2>
+
+      <div class="mb-3" id="involvements">
+        <%= f.simple_fields_for :involvements do |involvement_f| %>
+          <%= render 'roles/involvement_fields', f: involvement_f %>
+        <% end %>
+      </div>
+      <%= link_to_add_association t('add'), f, :involvements, class: "btn btn-primary", data: {
+            'association-insertion-method': 'append',
+            'association-insertion-node':   '#involvements'
+          } %>
+    </div>
   </div>
 
   <div class="form-actions">
