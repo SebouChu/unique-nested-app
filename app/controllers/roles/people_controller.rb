@@ -1,9 +1,11 @@
 class Roles::PeopleController < ApplicationController
+  include Sortable
+
   before_action :set_role
   before_action :set_involvement, only: %i[ show edit update destroy ]
 
   def index
-    @involvements = @role.involvements.all
+    @involvements = @role.involvements.all.ordered
     breadcrumb
   end
 
@@ -66,5 +68,9 @@ class Roles::PeopleController < ApplicationController
     breadcrumb_for(@role)
     add_breadcrumb Involvement.model_name.human(count: 2), role_people_path(@role)
     breadcrumb_for(@involvement, record_path: :role_person_path, record_path_params: [@role, @involvement])
+  end
+
+  def model
+    Involvement
   end
 end

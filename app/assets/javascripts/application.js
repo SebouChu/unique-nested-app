@@ -6,3 +6,5 @@
 //= require jquery3
 //= require jquery_ujs
 //= require cocoon
+//= require sortablejs/Sortable
+//= require_tree ./plugins

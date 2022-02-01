@@ -7,7 +7,10 @@ Rails.application.routes.draw do
     end
   end
   resources :roles do
-    resources :people, controller: 'roles/people'
+    post :sort, on: :collection
+    resources :people, controller: 'roles/people' do
+      post :sort, on: :collection
+    end
   end
 
   root 'home#show'

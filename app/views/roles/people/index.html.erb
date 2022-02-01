@@ -5,14 +5,16 @@
 <table class="table">
   <thead>
     <tr>
+      <th></th>
       <th><%= Involvement.human_attribute_name('person') %></th>
       <th></th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody data-sortable data-sort-url="<%= sort_role_people_path(@role) %>">
     <% @involvements.each do |involvement| %>
-      <tr>
+      <tr data-id="<%= involvement.id %>">
+        <td><span class="handle">☰</span></td>
         <td><%= involvement.person %></td>
         <td>
           <div class="btn-group" role="group">

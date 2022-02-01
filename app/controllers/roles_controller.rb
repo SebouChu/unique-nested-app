@@ -1,8 +1,10 @@
 class RolesController < ApplicationController
+  include Sortable
+
   before_action :set_role, only: %i[ show edit update destroy ]
 
   def index
-    @roles = Role.all
+    @roles = Role.all.ordered
     breadcrumb
   end
 
