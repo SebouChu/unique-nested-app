@@ -1,0 +1,7 @@
+<p>
+  <strong><%= Role.human_attribute_name('description') %> :</strong>
+  <%= @role.description %>
+</p>
+
+<%= link_to t('edit'), edit_role_path(@role) %> |
+<%= link_to t('back'), roles_path %>

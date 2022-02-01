@@ -1,0 +1,6 @@
+<h1><%= @role %></h1>
+
+<%= render 'form', role: @role %>
+
+<%= link_to t('show'), @role %> |
+<%= link_to t('back'), roles_path %>

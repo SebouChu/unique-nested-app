@@ -1,0 +1,27 @@
+<h1><%= Role.model_name.human(count: 2) %></h1>
+
+<%= link_to t('create'), new_role_path, class: 'btn btn-primary' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= Role.human_attribute_name('description') %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @roles.each do |role| %>
+      <tr>
+        <td><%= role.description %></td>
+        <td>
+          <div class="btn-group" role="group">
+            <%= link_to t('show'), role, class: "btn btn-primary" %>
+            <%= link_to t('edit'), edit_role_path(role), class: "btn btn-warning" %>
+            <%= link_to t('destroy'), role, method: :delete, data: { confirm: t('please_confirm') }, class: "btn btn-danger" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
