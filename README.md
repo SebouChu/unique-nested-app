@@ -2,6 +2,9 @@
 
 A WIP Rails application around nested forms and unique attributes.
 
+- Nested forms are handled by [the `cocoon` Ruby gem](https://github.com/nathanvda/cocoon).
+- Sort feature is handled by [the `Sortable` JS library](https://github.com/SortableJS/Sortable).
+
 ## Models
 
 ### Person
