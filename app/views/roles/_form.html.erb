@@ -12,15 +12,16 @@
     <div class="col-md-4">
       <h2><%= Involvement.model_name.human(count: 2) %></h2>
 
-      <div class="mb-3" id="involvements">
-        <%= f.simple_fields_for :involvements do |involvement_f| %>
-          <%= render 'roles/involvement_fields', f: involvement_f %>
-        <% end %>
-      </div>
-      <%= link_to_add_association t('add'), f, :involvements, class: "btn btn-primary", data: {
+      <%= link_to_add_association t('add'), f, :involvements, class: "btn btn-primary mb-3", data: {
             'association-insertion-method': 'append',
             'association-insertion-node':   '#involvements'
           } %>
+
+      <div class="mb-3" id="involvements" data-sortable="inputs">
+        <%= f.simple_fields_for :involvements, include_id: false do |involvement_f| %>
+          <%= render 'roles/involvement_fields', f: involvement_f, include_id: true %>
+        <% end %>
+      </div>
     </div>
   </div>
 
