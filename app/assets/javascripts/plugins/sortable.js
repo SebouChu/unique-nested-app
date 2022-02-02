@@ -46,10 +46,11 @@ window.sortableManager = {
 
     updateViaInputs: function (event) {
         'use strict';
-        Array.from(event.to.children).filter(function (child) {
-            var destroyInput = child.querySelector('input[name$="[_destroy]"]');
-            return destroyInput === null || destroyInput.value !== '1';
-        })
+        Array.from(event.to.children)
+            .filter(function (child) {
+                var destroyInput = child.querySelector('input[name$="[_destroy]"]');
+                return destroyInput === null || destroyInput.value !== '1';
+            })
             .forEach(function (child, index) {
                 var targetInput = child.querySelector('[data-sortable-input]');
                 if (targetInput !== null) {
