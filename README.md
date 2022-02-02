@@ -1,24 +1,40 @@
-# README
+# Unique Nested App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A WIP Rails application around nested forms and unique attributes.
 
-Things you may want to cover:
+## Models
 
-* Ruby version
+### Person
 
-* System dependencies
+A `Person` has a `first_name`, a `last_name`, and can have many `Involvements`.
 
-* Configuration
+### Program
 
-* Database creation
+A `Program` has a `title`, a `description` as rich text and can have many direct `Involvements` and `Roles` (with `Involvements` associated to them).
 
-* Database initialization
+### Role
 
-* How to run the test suite
+A `Role` has a `description`, a `position`, an optional polymorphic `target` and can have many *sortable* `Involvements`.
 
-* Services (job queues, cache servers, search engines, etc.)
+They are ordered by position, based on the target they are associated with.
 
-* Deployment instructions
+### Involvements
 
-* ...
+An `Involvement` creates a **unique** link between a `Person` with a polymorphic `target`. It also has:
+  - a `kind` based on the `target_type`
+    - `administrator` for `Role`
+    - `teacher` for `Program`
+  - a `description` (omitted when `target_type` is `Role`)
+  - a `position`
+
+They are ordered by position, based on the target they are associated with, like `Roles`.
+
+## Currently
+
+We can create `People` and `Programs`. We can create *target-less* `Roles` with `Involvements`, either in the `Role` form, or through nested controllers.
+
+## In the future
+
+- We should be able to add `Involvements` to `Programs`
+- We should be able to add `Roles` to `Programs`, and `Involvements` to those `Roles`
+- Nested `Involvement` fields inside `Role` form should have dynamic `Person` field based on the current selected `People`.
